@@ -1,0 +1,1 @@
+<model-viewer src="aquatank.glb" ar ar-modes="webxr scene-viewer quick-look" camera-controls poster="poster.webp" shadow-intensity="1" exposure="0.67" environment-image="pillars_1k.hdr" camera-orbit="0deg 75deg 28.04m" field-of-view="26.26deg"> </model-viewer>

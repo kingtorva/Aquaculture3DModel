@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>&lt;model-viewer&gt; template</title>
+    <meta charset="utf-8">
+    <meta name="description" content="&lt;model-viewer&gt; template">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link type="text/css" href="./styles.css" rel="stylesheet"/>
+    <!-- OPTIONAL: The :focus-visible polyfill removes the focus ring for some input types -->
+    <script src="https://cdn.jsdelivr.net/npm/focus-visible@5.0.2/dist/focus-visible.js" defer></script>
+  </head>
+  <body>
+    <!-- <Johns Code -->
+    
+    <model-viewer id="hotspot" src="aquatank.glb" ar ar-modes="webxr scene-viewer quick-look" 
+    camera-controls poster="poster.webp" shadow-intensity="0" exposure="0.67" environment-image="pillars_1k.hdr" 
+    camera-orbit="75deg 75deg 28.04m" field-of-view="26.26deg"> 
+  
+    <button class="Hotspot" slot="hotspot-2" data-surface="5 0 24 28 22 0.447 0.010 0.543" data-visibility-attribute="visible"
+      data-orbit="-50.94862deg 50.56856deg 0.06545582m" data-target="1m 5m 5.250m"> 
+      Growing Bed</div>
+
+
+  </button>
+  
+  <button id='1' class="Hotspot" slot="hotspot-3" data-surface="0 0 17 0 4 0.160 0.609 0.231" data-visibility-attribute="visible"
+    data-orbit="85.94862deg 50.56856deg 20.06545582m" data-target="3m 5.6572m -0.5m">
+    Tank</div>
+
+
+  </button>
+  
+  <button class="Hotspot" slot="hotspot-5" data-surface="0 0 32 39 49 0.478 0.328 0.194" data-visibility-attribute="visible"
+  data-orbit="180.94862deg 80.56856deg 20.06545582m" data-target="2m 3.6572m 10.5m">
+  Bell Syphon</div>
+  </button>
+  <!-- <Johns Code ends -->
+
+
+  <div class="progress-bar hide" slot="progress-bar">
+      <div class="update-bar"></div>
+  </div>
+  
+  
+  
+  </model-viewer>
+  
+  <script type="module">
+    const modelViewer2 = document.querySelector("#hotspot");
+    const annotationClicked = (annotation) => {
+      let dataset = annotation.dataset;
+      modelViewer2.cameraTarget = dataset.target;
+      modelViewer2.cameraOrbit = dataset.orbit;
+      modelViewer2.fieldOfView = '45deg';
+    }
+  
+    modelViewer2.querySelectorAll('button').forEach((hotspot) => {
+      hotspot.addEventListener('click', () => annotationClicked(hotspot));
+    });
+
+
+
+
+  </script>
+
+
+
+  
+    
+    <!-- Loads <model-viewer> for browsers: -->
+    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.0.1/model-viewer.min.js"></script>
+  </body>
+</html>
